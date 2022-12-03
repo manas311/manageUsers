@@ -11,10 +11,16 @@ const App = () => {
     });
   };
 
+  const deleteUserHandler = (id) => {
+    setUsersList((prevUsersList) => {
+      return prevUsersList.filter((l) => l.id !== id)
+    })
+  };
+
   return (
     <>
       <AddUsers onAddUser={addUserHandler} />
-      <UsersList users={usersList} />
+      <UsersList users={usersList} onDeleteUser={deleteUserHandler} />
     </>
   );
 };
